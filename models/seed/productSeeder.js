@@ -1,6 +1,7 @@
 let {Product} = require("../product");
 let mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/ShoppingCart")
+let database = process.env.MONGODB_URI || "mongodb://localhost:27017/ShoppingCart";
+mongoose.connect(database)
 let products = [new Product({
     imagePath:"http://res.cloudinary.com/yourmomgay/image/upload/v1523979685/fortnite.jpg",
     title:"Fortnite",
