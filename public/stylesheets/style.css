@@ -1,4 +1,5 @@
 body{
+
   font-family: 'Lato' , sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -140,6 +141,10 @@ img .image{
   .heading-secondary:hover {
     transform: scale(1.1);
     text-shadow: 0.5rem 10px 20px rgba(0, 0, 0, 0.2); } 
+
+ footer{
+   opacity: 0.6 !important;
+ }   
 @keyframes moveInLeft {
   0% {
     opacity: 0;
