@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "start": "npm run seed | npm run server",
-    "seed": "node ./models/seed/productSeeder",
-    "server": "node ./bin/www"
+    "seed":"node ./models/seed/productSeeder",
+    "server":"node ./bin/www"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^3.5.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.1",
     "cookie-parser": "~1.4.3",
