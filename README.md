@@ -2,6 +2,6 @@
 ShoppingCart made using express,passport auth,Hbs tempalting Engine and mongoDB with mongoose.
 
 ***
-NPM install
+NPM Install
 ***
-NPM start
+NPM Start
