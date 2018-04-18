@@ -1,0 +1,48 @@
+<div class="container">
+{{# if product}}
+<div style="color:black" class="cart">
+<div class="row pt-4">
+    <div class="col-md-6 col-sm-12 col-lg-12">
+        <ul class="list-group">
+            {{# each product}} 
+            <li class="list-group-item">
+                <strong>{{this.item.title}}</strong>
+               <span class="badge badge-success">{{this.price}}</span>
+                            <a class="mx-2" href="/remove/{{this.item._id}}"><i class="fas fa-times-circle"></i></a>
+                <a class="mx-4"href="/reduce/{{this.item._id}}"><i class="fas fa-minus-circle fa-1x"></i></a>
+                <a class="mx-2"href="/addWithInCart/{{this.item._id}}"><i class="fas fa-plus-circle"></i></a>
+                <span class="badge badge-secondary float-right" >{{ this.Qty }}</span>
+            </li>
+            {{/each}}
+            
+
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-lg-4">
+        <strong class="lead" style="font-size:26px; color:white;">Total: {{totalPrice}}</strong>
+    </div>
+  
+</div>
+  <hr>
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-lg-4 mx-auto">
+        <a href="/checkout/" type="button" class="btn btn-success btn-block">Proceed To Checkout</a>
+    </div>
+</div>
+{{ else }}
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-lg-4 mx-auto">
+
+       <h1 class=" text-white md-4 mt-3">Oppise it's look like you haven't added Item in thee cart yet</h1>
+      <h2 class="text-white lead">Back To Product Page  <a class="btn btn-link" href="/">Prodct Page</a></h2>
+
+    </div>
+</div>
+</div>
+{{/if}}
+</div>
+
+

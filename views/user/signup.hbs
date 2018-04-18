@@ -1,0 +1,28 @@
+<div class="row mt-5">
+    
+    <div class="col-md-4 m-md-auto text-center m-2">
+        <h1>SIGN UP</h1>
+        {{#if hasError}}
+        <div class="alert alert-danger">
+            {{# each messages}}
+            {{this}}
+            {{/each}}
+        </div>
+        {{/if}}
+        <form class="text-center" action="/user/Signup" method="post">
+              <div class="form-group">
+                  
+                  <label for="email">E-MAIL</label>
+                  <input type="text" id="email" name="email"class="form-control" placeholder="Enter your Email">
+              </div>
+              <div class="form-group">
+                  <label for="password">PASSWORD</label>
+                   <input type="text" id="password" name="password"class="form-control" placeholder="Enter your Password">
+                   
+              </div>
+              <input class="d-none" type="text" name="_csrf" value="{{csrfToken}}">
+              <button class="btn btn-success btn-block" type="submit">Sign Up</button>
+        </form>
+       
+    </div>
+</div>

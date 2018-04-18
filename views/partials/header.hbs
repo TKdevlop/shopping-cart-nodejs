@@ -1,0 +1,71 @@
+<div class="bg-dark">
+    <div class="container">
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-wrap2 flex-md-nowrap p-3">
+            <a class="navbar-brand ml-2" href="/">GameCart
+                <i class="fa fa-shopping-cart fa-2x"></i>
+            </a>
+            <button class="navbar-toggler d-md-none mt-1 mr-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="input-group py-1 px-2 px-md-0">
+                <input class="form-control form-control-dark" type="text" placeholder="Search for Product and More..." aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-info" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <ul class="navbar-nav navbar-expand-md pl-2 pr-3">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto text-nowrap">
+                        <li class="nav-item my-1 active">
+                    {{# if login}}
+                            <a class="nav-link " href="/user/profile"><i class="fa fa-user-circle ml-2"></i>  
+                         User
+                                <span class="sr-only">(current)</span>
+                            </a>
+                            {{ else }}
+                            <a class="nav-link " href="/user/signin"><i class="fa fa-user-circle ml-2"></i>  
+                            Login
+                                <span class="sr-only">(current)</span>
+                            </a>
+                            {{/if}}
+                            
+        
+                        </li>
+                        <li class="nav-item dropdown my-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><i class="fa fa-folder-open" aria-hidden="true"></i>   More</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {{# if login}}
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user"></i>My Order</a>
+                                <hr>
+                                <a class="dropdown-item" href="/user/logout">
+                                    <i class="fas fa-sign-out-alt"></i> Logout</a>
+                               {{ else }}  
+                                <a class="dropdown-item" href="/user/signup">
+                                    <i class="fas fa-user-plus"></i> SignUp</a>
+                                <hr>
+                                <a class="dropdown-item" href="/user/signin">
+                                    <i class="fas fa-sign-in-alt"></i> SignIn</a>   
+                                   {{/if}}
+                            </div>
+                             <li class="nav-item my-1">
+                    <a href="/shoppingcart/" class="nav-link btn btn-link">
+                        <i class="fa fa-shopping-cart cart"></i>   Cart <span class="badge badge-info">{{session.cart.totalQty}}</span></a>
+                </li>
+                </div>
+
+                </li>
+               
+                </ul>
+    </div>
+    </ul>
+
+    </nav>
+</div>
+</div>

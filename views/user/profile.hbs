@@ -1,0 +1,22 @@
+<div style="color:black"class="row">
+    <div class="col-md-6 mx-auto">
+       <h1 class="text-white text-center">User Profile</h1>
+       <hr>
+       <h2 class="text-white text-center">My Orders</h2>
+{{# each orders}}
+<ul class="list-group mt-3">
+            {{# each this.items}} 
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+ {{this.item.title}} | {{this.Qty}} Qty
+    <span class="badge badge-primary badge-pill">{{this.price}}</span>
+  </li> {{/each}}
+  </ul>
+  <div style="color:black" class="col=md-6 mt-5 p-3 bg-light">
+  <div class="">
+ Total:<span class="lead float-right">${{this.cart.totalPrice}}</span>                           
+  </div>
+  </div>
+{{/each}}
+   
+    </div>
+</div>
