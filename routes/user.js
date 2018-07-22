@@ -26,12 +26,12 @@ let product= new Product({
   price:req.body.price
   })
   product.save().then(()=>{
-res.render("user/additems",{
+res.render("user/addItems",{
   success:" Your Item is successfully added to game-cart"
 })
   }).catch(err => {
    console.log(err)
-   res.render("user/additems",{
+   res.render("user/addItems",{
     error:"An Error Occur while Uploading the file"
   })
   })
