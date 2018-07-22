@@ -1,13 +1,13 @@
 let {Product} = require("../product");
 let mongoose = require("mongoose");
-let database = process.env.MONGODB_URI || "mongodb://localhost:27017/ShoppingCart";
+let database ='mongodb://tushar:9411tushar@ds243491.mlab.com:43491/shopping-cart-nodejs';
 mongoose.connect(database)
 let products = [new Product({
     imagePath:"http://res.cloudinary.com/yourmomgay/image/upload/v1523979685/fortnite.jpg",
     title:"Fortnite",
     description:"Fortnite is a co-op sandbox survival game developed by Epic Games and People Can Fly and published by Epic Games.",
     price:0
-
+ 
 }),
 new Product({
     imagePath:"http://res.cloudinary.com/yourmomgay/image/upload/v1523979686/pubg.jpg",
@@ -91,7 +91,11 @@ new Product({
 ]
 for(let i=0;i<products.length;i++){
     products[i].save()
-    .then(product => mongoose.disconnect())
+    .then(product =>{
+        console.log(product)
+        return mongoose.disconnect()
+    } 
+        )
     .catch(e => console.log(e));
 }
 

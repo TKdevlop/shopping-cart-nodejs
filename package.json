@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm run seed | npm run server",
-    "seed":"node ./models/seed/productSeeder",
-    "server":"node ./bin/www"
+    "start": "npm run server",
+    "seed": "node ./models/seed/productSeeder",
+    "server": "node ./bin/www"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -24,8 +24,6 @@
     "mongoose": "^5.0.12",
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
-    "passport-facebook": "^2.1.1",
-    "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "stripe": "^5.8.0"
   }

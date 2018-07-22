@@ -1,0 +1,176 @@
+<style>
+    #file {
+        position: absolute;
+        font-size: 50px;
+        opacity: 0;
+        right: 0;
+        top: 0;
+
+    }
+
+    .file {
+        position: relative;
+        overflow: hidden;
+    }
+    .lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+</style>
+
+<div class="row mx-auto">
+
+    <div class="col-md-12 text-center">
+        <div class="alert alert-success w-50 mx-auto mt-2 d-none {{#if success}}  d-block  {{/if}}" role="alert">
+ {{success}}
+</div>
+<div class="alert alert-danger w-50 mx-auto mt-2 d-none {{#if error}}d-block{{/if}}" role="alert">
+  A Unknow error has been occured please try again later.
+</div>
+        <h2>Welcome!</h2>
+        <p>
+           This is add item Page where you can add item to the cart.
+        </p>
+        <form id="add-product" action="/user/additems" method="post">
+            <div class="row">
+                <div class="col-sm-6 form-group mx-auto">
+                    <div class="file btn btn-lg btn-primary">
+                        Upload
+                        <input type="file"  id="file">
+                
+                    </div>
+                            
+                    <br>
+                      <div class="spinner lds-ring d-none"><div></div><div></div><div></div><div></div></div>
+                    <br>
+                  
+                    <img class="img-fluid"  width="100%" src="" alt="Uploaded Image will apear here!"> 
+                    <br>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group mx-auto">
+                    <label for="name">
+                        Title:</label>
+                    <input placeholder="Title for product"  type="text" class="form-control title" name="title" maxlength="20">
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group mx-auto">
+                    <label for="email">
+                        price:</label>
+                    <input placeholder="Price of product" type="number" class="form-control"  name="price" maxlength="10">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group mx-auto">
+                    <label for="name">
+                        description:</label>
+                    <textarea  class="form-control description" type="textarea" name="description" placeholder="keep it less than 30 words but more than 20 character."
+                        maxlength="500" rows="7"></textarea>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-6 form-group mx-auto">
+                    <button type="submit" class="submit btn btn-lg btn-success btn-block mb-3">Post It! </button>
+                </div>
+            </div>
+            <input class="ImageURL d-none" type="text" name='url'>
+            <input class="d-none" type="text" name="_csrf" value="{{csrfToken}}">
+        </form>
+
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD6rhFCcxNfTAl2ICQrnMWWY6ZW3dPEKHg",
+        authDomain: "portfolio-bec76.firebaseapp.com",
+        databaseURL: "https://portfolio-bec76.firebaseio.com",
+        projectId: "portfolio-bec76",
+        storageBucket: "portfolio-bec76.appspot.com",
+        messagingSenderId: "35511303712"
+    };
+    firebase.initializeApp(config);
+</script>
+<script>
+    const spinner = document.querySelector(".spinner")
+    const input = document.querySelector("#file");
+    const button = document.querySelector('.submit');
+    const image = document.querySelector("img");
+    const url = document.querySelector(".ImageURL");
+    const title = document.querySelector(".title");
+    const price = document.querySelector(".price");
+    const description = document.querySelector(".description");
+    let form = document.querySelector('#add-product');
+  
+    input.addEventListener("change", uploadFile)
+    function uploadFile(e) {
+        spinner.classList.remove('d-none')
+        const file = e.target.files[0]
+        console.log(file)
+        const ref = firebase.storage().ref('/user/' + file.name);
+        ref.put(file).then(function (snapshot) {
+            snapshot.ref.getDownloadURL().then(URL => {
+                spinner.classList.add('d-none')
+                url.value = URL;
+                image.src = `${URL}`
+            })
+        })
+    }
+    function validateInput(e){
+        e.preventDefault();
+        if(input.value && title.value.trim().length!==0 && String(price.value).trim().length!==0 && description.value.trim().length>20){
+          form.submit()
+          
+        }
+        else{
+            const incomplete = document.createElement("div");
+          incomplete.className ="alert alert-danger w-50 mx-auto mt-2";
+          incomplete.textContent="All field must be filled before submisson";
+      form.insertBefore(incomplete,form.children[4])
+          setTimeout(()=>{
+             incomplete.classList.add("d-none")
+          },3000)
+        }
+    }
+   button.addEventListener("click",validateInput)
+       
+</script>

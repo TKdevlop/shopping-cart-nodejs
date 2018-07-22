@@ -99,18 +99,19 @@
             <hr class="mb-4">
 
             <h4 class="mb-3">Payment</h4>
-
         
             <div class="row">
+                <p style="font-size:14px;margin-left:20px">It's using stripe test mode no real card required <strong>4242424242424242</strong> will work </p>
               <div class="col-md-6 mb-3">
                 <label for="card-name">Name on card</label>
                 <input type="text" class="form-control" id="card-name" placeholder="" required>
-                <small class="text-muted">Full name as displayed on card</small>
+                <small class="text-muted text">Full name as displayed on card</small>
                 <div class="invalid-feedback">
                   Name on card is required
                 </div>
               </div>
               <div class="col-md-6 mb-3">
+              
                 <label for="card-number">Credit card number</label>
                 <input type="text" class="form-control" id="card-number" placeholder="" required>
                 <div class="invalid-feedback">
@@ -147,14 +148,6 @@
 </div>
       </div>
 
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Shopping Cart</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
     </div>
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>

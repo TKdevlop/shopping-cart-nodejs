@@ -30,6 +30,10 @@
 <div class="row">
     <div class="col-md-6 col-sm-12 col-lg-4 mx-auto">
         <a href="/checkout/" type="button" class="btn btn-success btn-block">Proceed To Checkout</a>
+        <form action="/checkout/paypal/" method="POST">
+        {{!-- <button class="btn btn-primary btn-md btn-block mt-2 text-white" type="submit">PAYPAL(INR)</button> --}}
+        </form>
+         
     </div>
 </div>
 {{ else }}

@@ -12,12 +12,13 @@ let passport = require("passport");
 let flash = require("connect-flash");
 let validator = require("express-validator");
 let monogoStore = require("connect-mongo")(session);//export the function which we need to pass section
-
+const MongoDB = require("./bin/config");
 var app = express();
 
+
 app.disable('x-powered-by');
-let database = process.env.MONGODB_URI || "mongodb://localhost:27017/ShoppingCart";
-mongoose.connect(database);
+let database = `mongodb://${MongoDB.credentails.username}:${MongoDB.credentails.password}@ds243491.mlab.com:43491/shopping-cart-nodejs`;
+mongoose.connect(database).then(res => console.log("Connected")).catch(err => console.log(err));
 require("./config/passport");
 // view engine setup
 app.engine(".hbs",expressHbs({defaultLayout:"layout",extname:".hbs"})) //so it will always serach .hbs file

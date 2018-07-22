@@ -3,8 +3,8 @@ let passport = require("passport");
 //we are working with the same one
 let {User} = require("../models/user");
 let localStrategy = require("passport-local").Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+// const FacebookStrategy = require('passport-facebook').Strategy;
+// const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 passport.serializeUser((user,done)=>{
     done(null,user.id);
 //whenever we want storage the user in our session serialize the ID
@@ -91,23 +91,23 @@ return done(null,false,req.flash("error",messages))
 })
 );
 
-passport.use(new FacebookStrategy({
-    clientID: '165528440943168',
-    clientSecret: 'ab15fa7775eb49d07807379b8c180251',
-    callbackURL: 'http://localhost:3000/auth/facebook/callback',
-    profileFields: ['id', 'displayName', 'email']
-  }, function(accessToken, refreshToken, profile, next) {
-      User.findOne({ facebookId: profile.id }, function(err, user) {
-        if (user) {
-          return next(err, user);
-        } else {
-          let newUser = new User();
-          newUser.email = profile._json.email;
-          newUser.facebookId = profile.id;
-          newUser.save(function(err) {
-            if (err) throw err;
-            next(err, newUser);
-          });
-        }
-      });
-  }));
+// passport.use(new FacebookStrategy({
+//     clientID: '165528440943168',
+//     clientSecret: 'ab15fa7775eb49d07807379b8c180251',
+//     callbackURL: 'http://localhost:3000/auth/facebook/callback',
+//     profileFields: ['id', 'displayName', 'email']
+//   }, function(accessToken, refreshToken, profile, next) {
+//       User.findOne({ facebookId: profile.id }, function(err, user) {
+//         if (user) {
+//           return next(err, user);
+//         } else {
+//           let newUser = new User();
+//           newUser.email = profile._json.email;
+//           newUser.facebookId = profile.id;
+//           newUser.save(function(err) {
+//             if (err) throw err;
+//             next(err, newUser);
+//           });
+//         }
+//       });
+//   }));

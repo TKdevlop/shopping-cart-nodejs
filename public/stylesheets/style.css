@@ -10,7 +10,12 @@ body{
  /* overflow-x: hidden; */
 
 }
-
+.btn-info{
+  border:3px solid black;
+}
+.btn-info:hover{
+  box-shadow: 5px 5px 5px black;
+}
 .card{
  margin-top: 30px;  
  color:white; 
@@ -91,10 +96,9 @@ img .image{
   -ms-transform: translate(-50%, -50%);
 }
 .contain:hover .image {
-  transform: scale(1.05) translateY(-2px);
-  box-shadow: 0 2.5rem 4rem rgba(black, .5);
+  transform: scale(1.05);
   z-index: 20;
-  opacity: 0.3;
+
 }
 .contain:hover .middle {
   opacity: 1;
@@ -113,17 +117,7 @@ img .image{
   font-size:14px;
 }
 
-.btn:link, .btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 20rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: 16px; }
 
-.btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rbga(#000000, 0.2); }
 
 
  
@@ -132,9 +126,7 @@ img .image{
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 700;
-  background-image: linear-gradient(to right, #7ed56fd7, #28b485d2);
-  background-clip: text;
-  color: transparent;
+color:#208537;
  margin:0px auto;
   letter-spacing: 2px;
   transition: all 0.2s; }

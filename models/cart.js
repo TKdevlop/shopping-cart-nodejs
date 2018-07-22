@@ -35,4 +35,8 @@ this.genrateArray = function(){
     }
     return arr;
 }
+this.paypalArray = function(){
+    let arr=[];
+    
+}
 };
