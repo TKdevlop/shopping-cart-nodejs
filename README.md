@@ -9,11 +9,11 @@
 
 
 # Installing
-> Set up MongoDB  using mlabs change bin/config with your username and password [MonogDB](https://mlab.com/)
+> Set up MongoDB using mlabs change bin/config with your username and password [MonogDB](https://mlab.com/).
 
->Set up Firebase  for Admin [Firebase](https://firebase.google.com/) and change items **addItems.hbs** with your credentials
+>Set up [Firebase](https://firebase.google.com/) project  and change items **addItems.hbs** with your credentials.
 
->Set up Stripe keys in Public/javascript/checkout and routes/index.js [Stripe](https://stripe.com/)
+>Set up your Stripe keys in bin/config [Stripe]( https://dashboard.stripe.com/account/apikeys).
 
 
 ```bash

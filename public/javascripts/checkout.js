@@ -1,4 +1,4 @@
-Stripe.setPublishableKey('[Enter your PK test key]');
+Stripe.setPublishableKey('pk_test_8QEWudGPQ0YjS7EDU75ptViF');
 
 var $form = $('#checkout-form');
 console.log($form);

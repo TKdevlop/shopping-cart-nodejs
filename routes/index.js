@@ -5,12 +5,7 @@ let {Product} = require(".././models/product");
 let Cart = require("../models/cart");
 let {Order} = require("../models/order");
 // const paypal = require('paypal-rest-sdk');
-// paypal.configure({
-//   'mode': 'sandbox', //sandbox or live
-//   'client_id': 'AfwHQmJl4Oxm0QwrfmaYbJaT_c_4QFGhx4tLh3yRJSy0zYWoAfoJ-O3bZt1njsM415ViErSs7eyDl4NJ',
-//   'client_secret': 'EPpK5b5VGEXkHveGCwMKG13kmMDjqXPFvUalQ1_Evsw7oJ-Cl2zpyTEdBr-JSdCoHQBdGPFK4Ow0Dx6U'
-// });
-/* GET home page. */
+const stripeKey  = require("../bin/config");
 
 router.post("/product/filter",(req,res)=>{
   let successMsg = req.flash("success")[0];
@@ -168,7 +163,7 @@ router.post("/checkout",isLoggedIn,(req,res,next)=>{
   let cart = new Cart(req.session.cart);
   // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
-var stripe = require("stripe")("[Enter your SK test key]");
+var stripe = require("stripe")(stripeKey.stripeKey); 
 
 // Token is created using Checkout or Elements!
 // Get the payment token ID submitted by the form:
