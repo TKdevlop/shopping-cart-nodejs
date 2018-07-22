@@ -1,6 +1,6 @@
 const credentails = {
-    username:"tushar",
-    password:"9411tushar"
+    username:"Enter your mlabs username",
+    password:"enter your mlabs password"
 }
 
 module.exports ={
