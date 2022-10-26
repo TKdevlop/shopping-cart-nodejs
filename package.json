@@ -5,7 +5,9 @@
   "scripts": {
     "start": "npm run server",
     "seed": "node ./models/seed/productSeeder",
-    "server": "node ./bin/www"
+    "server": "node ./bin/www",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -25,6 +27,8 @@
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "stripe": "^5.8.0"
-  }
+    "stripe": "^5.8.0",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
